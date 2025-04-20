@@ -19,3 +19,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/insertDataKelas', [KelasController::class, 'insertDataKelas']);
 Route::post('/insertDataSiswa', [SiswaController::class, 'insertDataSiswa']);
+Route::post('/updateDataKelas', [KelasController::class, 'updateDataKelas']);
