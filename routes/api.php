@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-Route::post('/insertDataKelas', [KelasController::class, 'insertDataKelas']);
+// SiswaController
 Route::post('/insertDataSiswa', [SiswaController::class, 'insertDataSiswa']);
+Route::post('/updateDataSiswa', [SiswaController::class, 'updateDataSiswa']);
+
+// KelasController
+Route::post('/insertDataKelas', [KelasController::class, 'insertDataKelas']);
+
