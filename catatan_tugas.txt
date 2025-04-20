@@ -1,0 +1,16 @@
+# PR Tanggal 20 April 2025
+
+A. Bikin file migration
+1. nama file -> create_tbl_data_guru, nama table -> create_tbl_data_guru
+
+B. detail tabelnya sebagai berikut
+1. id_guru tipe data  bigIncrements
+2. nama_guru tipe data string, panjang datanya 50
+3. tempat_lahir tipe data string
+4. tanggal_lahir tipe data date
+5. detail_matpel tipe data string
+6. alamat tipe data longText
+7. no_telp tipe data string
+
+C. bikin service insert
+D. bikin service update
