@@ -12,14 +12,13 @@ class Siswa extends Model
         'id_siswa',
         'nama_siswa',
         'alamat',
-        'no_tlp',
-
+        'no_telp',
     ];
+    
     protected $casts = [
         'id_siswa' => 'integer',
         'nama_siswa' => 'string',
         'alamat' => 'string',
-        'no_tlp' => 'string',
-
+        'no_telp' => 'string',
     ];
 }

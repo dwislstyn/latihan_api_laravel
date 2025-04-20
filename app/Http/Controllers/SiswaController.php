@@ -18,23 +18,25 @@ class SiswaController extends Controller
         $this->output->responseDesc = '';
     }
 
+
     public function insertDataSiswa(Request $request)
     {
-     $dataSiswa = new Siswa();
-     $dataSiswa->nama_siswa = $request->nama_siswa;   
-     $dataSiswa->alamat = $request->alamat;   
-     $dataSiswa->no_tlp = $request->no_telp;
-     
-     $insertData = DB::table('tbl_siswa')->insert($dataSiswa->toArray());   
+        $dataSiswa = new Siswa();
+        $dataSiswa->nama_siswa = $request->nama_siswa;
+        $dataSiswa->alamat = $request->alamat;
+        $dataSiswa->no_telp = $request->no_telp;
 
-     if($insertData === false) {
-        $this->output->responseCode = '01';
-        $this->output->responseDesc = 'Insert data siswa gagal.';
-     }else{
-        $this->output->responseCode= '00';
-        $this->output->responseDesc= 'insert data siswa sukses.';
-     }
+        $insertData = DB::table('tbl_siswa')->insert($dataSiswa->toArray());
+        
+        if ($insertData === false) {
+            $this->output->responseCode = '01';
+            $this->output->responseDesc = 'Insert data siswa gagal.';
+        } else {
+            $this->output->responseCode = '00';
+            $this->output->responseDesc = 'Insert data siswa sukses.';
 
-     return $this->output;
+        }
+
+        return $this->output;
     }
 }
