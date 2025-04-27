@@ -49,7 +49,7 @@ class GuruController extends Controller
         $this->output->responseDesc = 'parameter ID guru valid';
        }
 
-       $queryGuru = DB::table('tbl_guru')->where('id_guru', $request->id_guru)->first();
+       $queryGuru = DB::table('tbl_data_guru')->where('id_guru', $request->id_guru)->first();
        if(empty($queryGuru)) {
         $this->output->responseCode = '02';
         $this->output->responseDesc = "Data Guru dengan ID: $request->id_guru tidak ditemukan";

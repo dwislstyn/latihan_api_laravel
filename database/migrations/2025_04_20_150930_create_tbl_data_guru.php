@@ -15,12 +15,12 @@ class CreateTblDataGuru extends Migration
     {
         Schema::create('tbl_data_guru', function (Blueprint $table) {
             $table->bigIncrements('id_guru');
-            $table->string('nama_guru');
-            $table->string('tempat_lahir');
-            $table->date('tanggal_lahir');
-            $table->string('detail_matpel');
-            $table->longText('alamat');
-            $table->string('no_tlp');
+            $table->string('nama_guru', 50)->nullable();
+            $table->string('tempat_lahir')->nullable();
+            $table->date('tanggal_lahir')->nullable();
+            $table->string('detail_matpel')->nullable();
+            $table->longText('alamat')->nullable();
+            $table->string('no_tlp')->nullable();
         });
     }
 
