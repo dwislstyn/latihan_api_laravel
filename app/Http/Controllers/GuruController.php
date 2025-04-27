@@ -57,19 +57,20 @@ class GuruController extends Controller
 
        $Guru = new Guru();
 
-       $Guru->nama_guru = empty($request->nama_guru) ? $request->nama_guru : (empty($queryGuru->nama_guru) ? null : $queryGuru->nama_guru);
-       $Guru->tempat_lahir = empty($request->tempat_lahir) ? $request->tempat_lahir : (empty($queryGuru->tempat_lahir) ? null : $queryGuru->tempat_lahir);
-       $Guru->tanggal_lahir = empty($request->tanggal_lahir) ? $request->tanggal_lahir : (empty($queryGuru->tanggal_lahir) ? null : $queryGuru->tanggal_lahir);
-       $Guru->detail_matpel = empty($request->detail_matpel) ? $request->detail_matpel : (empty($queryGuru->detail_matpel) ? null : $queryGuru->detail_matpel);
-       $Guru->no_tlp = empty($request->no_tlp) ? $request->no_tlp : (empty($queryGuru->no_tlp) ? null : $queryGuru->no_tlp);
+       $Guru->nama_guru = !empty($request->nama_guru) ? $request->nama_guru : (empty($queryGuru->nama_guru) ? null : $queryGuru->nama_guru);
+       $Guru->tempat_lahir = !empty($request->tempat_lahir) ? $request->tempat_lahir : (empty($queryGuru->tempat_lahir) ? null : $queryGuru->tempat_lahir);
+       $Guru->tanggal_lahir = !empty($request->tanggal_lahir) ? $request->tanggal_lahir : (empty($queryGuru->tanggal_lahir) ? null : $queryGuru->tanggal_lahir);
+       $Guru->detail_matpel = !empty($request->detail_matpel) ? $request->detail_matpel : (empty($queryGuru->detail_matpel) ? null : $queryGuru->detail_matpel);
+       $Guru->no_tlp = !empty($request->no_tlp) ? $request->no_tlp : (empty($queryGuru->no_tlp) ? null : $queryGuru->no_tlp);
 
        $statusUpdate = false;
         
        
        try {
-        $updateGuru = DB::table('tbl_guru')->where('id_guru', $request->id_guru)->update($Guru->toArray());
+        $updateGuru = DB::table('tbl_data_guru')->where('id_guru', $request->id_guru)->update($Guru->toArray());
         $statusUpdate = true;
        } catch (\Throwable $th) {
+        dd($th);
         $statusUpdate = false;
        }
 
