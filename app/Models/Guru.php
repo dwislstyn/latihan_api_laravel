@@ -19,12 +19,12 @@ class Guru extends Model
     ];
     
     protected $casts = [
-        'id_guru' => 'bigIncrements',
+        'id_guru' => 'integer',
         'nama_guru' => 'string',
         'tempat_lahir' => 'string',
-        'tanggal_lahir' => 'date',
+        'tanggal_lahir' => 'datetime:Y-m-d',
         'detail_matpel' => 'string',
-        'alamat' => 'longText',
+        'alamat' => 'string',
         'no_tlp' => 'string',
     ];
 }

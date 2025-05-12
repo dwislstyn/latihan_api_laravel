@@ -22,15 +22,14 @@ class GuruController extends Controller
     public function insertDataGuru(Request $request)
     {
      $dataGuru = new Guru();
-     $dataGuru->id_guru = $request->id_guru;   
-     $dataGuru->nama_guru = $request->nama_guru;   
+    $dataGuru->nama_guru = $request->nama_guru;   
      $dataGuru->tempat_lahir = $request->tempat_lahir;   
      $dataGuru->tanggal_lahir = $request->tanggal_lahir;   
      $dataGuru->detail_matpel = $request->detail_matpel;   
      $dataGuru->alamat= $request->alamat;   
      $dataGuru->no_tlp = $request->no_tlp;   
 
-     $insertData = DB::table('tbl_guru')->insert($dataGuru->toArray());   
+     $insertData = DB::table('tbl_data_guru')->insert($dataGuru->toArray());   
 
      if($insertData === false) {
         $this->output->responseCode = '01';
@@ -62,6 +61,7 @@ class GuruController extends Controller
        $Guru->tanggal_lahir = !empty($request->tanggal_lahir) ? $request->tanggal_lahir : (empty($queryGuru->tanggal_lahir) ? null : $queryGuru->tanggal_lahir);
        $Guru->detail_matpel = !empty($request->detail_matpel) ? $request->detail_matpel : (empty($queryGuru->detail_matpel) ? null : $queryGuru->detail_matpel);
        $Guru->no_tlp = !empty($request->no_tlp) ? $request->no_tlp : (empty($queryGuru->no_tlp) ? null : $queryGuru->no_tlp);
+       $Guru->alamat = !empty($request->alamat) ? $request->alamat : (empty($queryGuru->alamat) ? null : $queryGuru->alamat);
 
        $statusUpdate = false;
         
@@ -70,7 +70,6 @@ class GuruController extends Controller
         $updateGuru = DB::table('tbl_data_guru')->where('id_guru', $request->id_guru)->update($Guru->toArray());
         $statusUpdate = true;
        } catch (\Throwable $th) {
-        dd($th);
         $statusUpdate = false;
        }
 
